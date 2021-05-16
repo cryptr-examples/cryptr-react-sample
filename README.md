@@ -1,11 +1,25 @@
 # Cryptr with React
 
-## [01 Get the Starter Application](https://github.com/cryptr-examples/cryptr-react-sample/tree/01-get-the-starter-application)
+## 02 Application Keys
 
-## [02 Application Keys](https://github.com/cryptr-examples/cryptr-react-sample/tree/02-application-keys)
+### Add your Cryptr credentials
 
-## [03 Set up the Cryptr SPA JS](https://github.com/cryptr-examples/cryptr-react-sample/tree/03-set-up-the-cryptr-react-sdk)
+🛠️️ Add a `.env` file to your environment with the following command:
 
-## [04 Add user authentication](https://github.com/cryptr-examples/cryptr-react-sample/tree/04-add-user-authentication)
+```bash
+touch .env
+```
 
-## [05 Secure the Profile page](https://github.com/cryptr-examples/cryptr-react-sample/tree/05-secure-the-profile-page)
+🛠️️ Then fill the `.env` file with the variables you'll have retrieved from your Cryptr application. Don't forget to replace `YOUR_CLIENT_ID` & `YOUR_DOMAIN` with your own domain.
+
+```javascript
+REACT_APP_CRYPTR_AUDIENCE=http://localhost:3000
+REACT_APP_CRYPTR_CLIENT_ID=YOUR_CLIENT_ID
+REACT_APP_CRYPTR_DEFAULT_LOCALE=en
+REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI=http://localhost:3000
+REACT_APP_CRYPTR_TENANT_DOMAIN=YOUR_DOMAIN
+REACT_APP_CRYPTR_TELEMETRY=FALSE
+REACT_APP_CRYPTR_REGION=eu
+```
+
+[Next](https://github.com/cryptr-examples/cryptr-react-sample/tree/03-set-up-the-cryptr-react-sdk)
