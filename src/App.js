@@ -5,6 +5,7 @@ import Nav from './components/Nav'
 import Home from './pages/home'
 import Profile from './pages/profile'
 import { CryptrProvider } from '@cryptr/cryptr-react'
+import ProtectedRoute from './ProtectedRoute'
 
 const cryptrConfig = {
   audience: process.env.REACT_APP_CRYPTR_AUDIENCE,
@@ -24,7 +25,7 @@ const App = () => {
           <Nav />
           <Switch>
             <Route path="/" exact render={() => <Home />}/>
-            <Route path="/profile" render={() => <Profile />}/>
+            <ProtectedRoute path="/profile" component={Profile}/>
           </Switch>
         </Router>
       </div>

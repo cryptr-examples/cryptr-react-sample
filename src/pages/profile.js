@@ -1,6 +1,10 @@
 import React from 'react'
+import { useCryptr } from '@cryptr/cryptr-react'
 
 const Profile = () => {
+
+  const {user: cryptrUser} = useCryptr()
+
   return (
     <div className="py-36 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,7 +13,7 @@ const Profile = () => {
             This is a profile page
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">    
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+            {cryptrUser().email}
           </p>
         </div>
       </div>
