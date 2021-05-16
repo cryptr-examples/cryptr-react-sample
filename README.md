@@ -1,25 +1,59 @@
 # Cryptr with React
 
-## 02 Application Keys
+## 03 Set up the Cryptr React SDK
 
-### Add your Cryptr credentials
+### Installation
 
-🛠️️ Add a `.env` file to your environment with the following command:
+🛠️️ First, you need to install our package as a dependency:
 
 ```bash
-touch .env
+yarn add @cryptr/cryptr-react
 ```
 
-🛠️️ Then fill the `.env` file with the variables you'll have retrieved from your Cryptr application. Don't forget to replace `YOUR_CLIENT_ID` & `YOUR_DOMAIN` with your own domain.
+### Configure the CryptrProvider component
+
+🛠️️ Add your `cryptrConfig` (with your credentials to React) to `src/App.js`:
 
 ```javascript
-REACT_APP_CRYPTR_AUDIENCE=http://localhost:3000
-REACT_APP_CRYPTR_CLIENT_ID=YOUR_CLIENT_ID
-REACT_APP_CRYPTR_DEFAULT_LOCALE=en
-REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI=http://localhost:3000
-REACT_APP_CRYPTR_TENANT_DOMAIN=YOUR_DOMAIN
-REACT_APP_CRYPTR_TELEMETRY=FALSE
-REACT_APP_CRYPTR_REGION=eu
+const cryptrConfig = {
+  audience: process.env.REACT_APP_CRYPTR_AUDIENCE,
+  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID,
+  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE,
+  default_redirect_uri: process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI,
+  telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY,
+  region: process.env.REACT_APP_CRYPTR_REGION,
+  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN
+}
 ```
 
-[Next](https://github.com/cryptr-examples/cryptr-react-sample/tree/03-set-up-the-cryptr-react-sdk)
+🛠️️ Import `CryptrProvider` from `@cryptr/cryptr-react`
+
+```javascript
+import { CryptrProvider } from '@cryptr/cryptr-react'
+```
+
+🛠️️ Wrap your root component, such as `App`, with `CryptrProvider` to integrate Cryptr to your React app and integrate `cryptrConfig`.
+
+```javascript
+const App = () => {
+  return (
+    <CryptrProvider {...cryptrConfig}>
+      <div className="App">
+        <Router history={history}>
+          <Nav />
+          <Switch>
+            <Route path="/" exact render={() => <Home />}/>
+            <Route path="/profile" render={() => <Profile />}/>
+          </Switch>
+        </Router>
+      </div>
+    </CryptrProvider>
+  );
+}
+ 
+export default App
+```
+
+The `CryptrProvider` is there to give Cryptr context to Child components. It will be able to handle the user session and retrieve the user’s info to handle your routing for example.
+
+[Next](https://github.com/cryptr-examples/cryptr-react-sample/tree/04-add-user-authentication)
