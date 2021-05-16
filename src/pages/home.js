@@ -1,4 +1,5 @@
 import React from 'react'
+import { SignUpButton } from '@cryptr/cryptr-react'
 
 const Home = () => {
   return (
@@ -35,11 +36,11 @@ const Home = () => {
               This is a sample application that demonstrates an authentication with <a target="_blank" rel="noreferrer" className="underline text-blue-600 hover:text-blue-800" href="https://www.cryptr.co/">Cryptr</a>, using React
             </p>
             <div className="mt-5 sm:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-center lg:justify-start">
-              <button
+              <SignUpButton
                 className="cursor-pointer mx-auto sm:mx-0 sm:mr-8 md:mr-10 rounded-md shadow flex items-center justify-center px-8 py-3 border border-transparent text-sm leading-6 font-bold shadow-md rounded-md uppercase text-gray-900 bg-yellow-400 hover:bg-yellow-300 focus:outline-none focus:border-yellow-500 focus:shadow-outline-yellow transition duration-150 ease-in-out md:py-3 md:text-base md:px-10"
               >
                 Signup
-              </button>
+              </SignUpButton>
               <div className="mt-3 sm:mt-0">
                 <a
                   href="mailto:hamid@sharkup.studio?subject=A propos de Shark academy&body=Bonjour Hamid,"

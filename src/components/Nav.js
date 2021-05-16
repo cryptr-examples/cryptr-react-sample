@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { LogOutButton, SignInButton } from '@cryptr/cryptr-react'
 
 const Nav = () => {
   return (
@@ -62,14 +63,14 @@ const Nav = () => {
               </Link>
             </div>
           </div>
-          <button type="button"
+          <SignInButton type="button"
             className="relative inline-flex items-center px-5 py-3 border border-transparent text-base uppercase leading-5 font-bold rounded-md text-yellow-500 shadow-md hover:shadow-xl focus:outline-none transition duration-150 ease-in-out">
             Login
-          </button>
-          {/* <button type="button"
+          </SignInButton>
+          <LogOutButton type="button"
             className="relative inline-flex items-center px-5 py-3 border border-transparent text-base uppercase leading-5 font-bold rounded-md text-yellow-500 shadow-md hover:shadow-xl focus:outline-none transition duration-150 ease-in-out">
             Logout
-          </button> */}
+          </LogOutButton>
         </div>
       </div>
     </nav>

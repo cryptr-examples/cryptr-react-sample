@@ -1,59 +1,48 @@
 # Cryptr with React
 
-## 03 Set up the Cryptr React SDK
+## 04 Add user authentication
 
-### Installation
+### Signup button
 
-🛠️️ First, you need to install our package as a dependency:
-
-```bash
-yarn add @cryptr/cryptr-react
-```
-
-### Configure the CryptrProvider component
-
-🛠️️ Add your `cryptrConfig` (with your credentials to React) to `src/App.js`:
+🛠 Open up home page in the `src/pages/home.js` and import `SignUpButton`
 
 ```javascript
-const cryptrConfig = {
-  audience: process.env.REACT_APP_CRYPTR_AUDIENCE,
-  client_id: process.env.REACT_APP_CRYPTR_CLIENT_ID,
-  default_locale: process.env.REACT_APP_CRYPTR_DEFAULT_LOCALE,
-  default_redirect_uri: process.env.REACT_APP_CRYPTR_DEFAULT_REDIRECT_URI,
-  telemetry: process.env.REACT_APP_CRYPTR_TELEMETRY,
-  region: process.env.REACT_APP_CRYPTR_REGION,
-  tenant_domain: process.env.REACT_APP_CRYPTR_TENANT_DOMAIN
-}
+import { SignUpButton } from '@cryptr/cryptr-react'
 ```
 
-🛠️️ Import `CryptrProvider` from `@cryptr/cryptr-react`
+🛠 Replace « Signup » button with `SignUpButton`:
 
 ```javascript
-import { CryptrProvider } from '@cryptr/cryptr-react'
+<SignUpButton
+  className="cursor-pointer sm:mr-8 md:mr-10 rounded-md shadow flex items-center justify-center px-8 py-3 border border-transparent text-sm leading-6 font-bold shadow-md rounded-md uppercase text-gray-900 bg-yellow-400 hover:bg-yellow-300 focus:outline-none focus:border-yellow-500 focus:shadow-outline-yellow transition duration-150 ease-in-out md:py-3 md:text-base md:px-10"
+>
+  Signup
+</SignUpButton>
 ```
 
-🛠️️ Wrap your root component, such as `App`, with `CryptrProvider` to integrate Cryptr to your React app and integrate `cryptrConfig`.
+### Login and logout buttons
+
+🛠 Open up nav component in the `src/components/Nav.js` and import `LogOutButton` and `SignInButton`
 
 ```javascript
-const App = () => {
-  return (
-    <CryptrProvider {...cryptrConfig}>
-      <div className="App">
-        <Router history={history}>
-          <Nav />
-          <Switch>
-            <Route path="/" exact render={() => <Home />}/>
-            <Route path="/profile" render={() => <Profile />}/>
-          </Switch>
-        </Router>
-      </div>
-    </CryptrProvider>
-  );
-}
- 
-export default App
+import { LogOutButton, SignInButton } from '@cryptr/cryptr-react'
 ```
 
-The `CryptrProvider` is there to give Cryptr context to Child components. It will be able to handle the user session and retrieve the user’s info to handle your routing for example.
+🛠 Replace « Login » button and « Logout » button with `SignInButton` and `LogOutButton`:
 
-[Next](https://github.com/cryptr-examples/cryptr-react-sample/tree/04-add-user-authentication)
+```javascript
+<SignInButton type="button"
+  className="relative inline-flex items-center px-5 py-3 border border-transparent text-base uppercase leading-5 font-bold rounded-md text-yellow-500 shadow-md hover:shadow-xl focus:outline-none transition duration-150 ease-in-out">
+  <span>Login</span>
+</SignInButton>
+<LogOutButton type="button"
+  className="relative inline-flex items-center px-5 py-3 border border-transparent text-base uppercase leading-5 font-bold rounded-md text-yellow-500 shadow-md hover:shadow-xl focus:outline-none transition duration-150 ease-in-out">
+  Logout
+</LogOutButton>
+```
+
+🛠 Run the server & try to connect. Your React application redirects you to your sign form page, where you can sign in or sign up with an email.
+
+__NOTE: You can log in with a sandbox email and we send you a magic link which should directly arrive in your personal inbox.__
+
+[Next](https://github.com/cryptr-examples/cryptr-react-sample/tree/05-secure-the-profile-page)
